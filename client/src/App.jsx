@@ -6,6 +6,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap';
 import Home from './views/Home';
 import Products from './views/Products';
+import LoginReg from './views/LoginReg';
 
 
 
