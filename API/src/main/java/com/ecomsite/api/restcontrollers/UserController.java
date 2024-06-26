@@ -3,6 +3,7 @@ package com.ecomsite.api.restcontrollers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,11 +17,12 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 @RestController
+@CrossOrigin(origins = "http://localhost://5173", allowCredentials = "true")
 @RequestMapping("/api/user")
 public class UserController {
 
 	@Autowired
-	UserService uServ;
+	UserRepository uRepo;
 
 	@PostMapping("/register")
 	public String register(@Valid @ModelAttribute("newUser") User newUser, BindingResult result, Model model,
