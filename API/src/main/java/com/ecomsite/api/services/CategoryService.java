@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.ecomsite.api.models.Category;
 import com.ecomsite.api.repositories.CategoryRepository;
 
+//!!!!! Not In Use!!!!
+//!!!!! This file is currently not in use, but retained for potential use in the future!!!!
+
 public class CategoryService {
 
 	@Autowired

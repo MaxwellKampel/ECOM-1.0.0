@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.ecomsite.api.models.Product;
 import com.ecomsite.api.repositories.ProductRepository;
 
+//!!!!! Not In Use!!!!
+//!!!!! This file is currently not in use, but retained for potential use in the future!!!!
 @Service
 public class ProductService {
 

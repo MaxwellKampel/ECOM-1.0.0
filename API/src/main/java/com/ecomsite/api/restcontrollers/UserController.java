@@ -1,11 +1,11 @@
 package com.ecomsite.api.restcontrollers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,41 +22,47 @@ import jakarta.validation.Valid;
 public class UserController {
 
 	@Autowired
-	UserRepository uRepo;
+	UserService uServ;
 
 	@PostMapping("/register")
-	public String register(@Valid @ModelAttribute("newUser") User newUser, BindingResult result, Model model,
+	public ResponseEntity <Object> register(@Valid @RequestBody User newUser, 
+			BindingResult result,
 			HttpSession session) {
 
 		// call a register method in the service
 		User regUser = uServ.register(newUser, result);
 
 		if (result.hasErrors()) {
-			// Be sure to send in the empty LoginUser before
-			// re-rendering the page.
-			model.addAttribute("newLogin", new LoginUser());
-			return "index.jsp";
+			return ResponseEntity.status(400).body(result.getAllErrors());
 		} else {
 			session.setAttribute("userId", regUser.getId());
 			session.setAttribute("userName", regUser.getFirstName());
-			return "redirect:/home";
+			return ResponseEntity.ok().build();
 
 		}
 
 	}
 
 	@PostMapping("/login")
-	public String login(@Valid @ModelAttribute("newLogin") LoginUser newLogin, BindingResult result, Model model,
+	public ResponseEntity <Object> login(@Valid @RequestBody LoginUser newLogin, 
+			BindingResult result, 
 			HttpSession session) {
 
 		// Add once service is implemented:
 		User logUser = uServ.login(newLogin, result);
+		
+		if (result.hasErrors()) {
+			return ResponseEntity.status(400).body(result.getAllErrors());
+		} else {
+			session.setAttribute("userId", logUser.getId());
+			session.setAttribute("userName", logUser.getFirstName());
+			return ResponseEntity.ok().build();
 
-		return logUser;
-
-		// No errors!
-		// TO-DO Later: Store their ID from the DB in session,
-		// in other words, log them in.
+		}
+		
+//		create admin user from backend??
+//	@PostMapping("/create")
+		
 
 	}
 

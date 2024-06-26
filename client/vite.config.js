@@ -12,7 +12,7 @@ export default defineConfig({
       }
 })
 
-
+// for boostrap install
 // const path = require('path')
 
 // export default {

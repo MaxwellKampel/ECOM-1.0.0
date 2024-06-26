@@ -1,23 +1,20 @@
 package com.ecomsite.api.models;
 
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
     
 @Entity
@@ -28,7 +25,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    private Long admin_id;
+    @NotNull
+    private Long adminLevel;
+    
+    
+    private Long employeeId;
+    
     
     @NotEmpty(message="First Name is required!")
     @Size(min=3, max=30, message="First Name must be between 3 and 30 characters")
@@ -124,15 +126,24 @@ public class User {
 		this.updatedAt = updatedAt;
 	}
 
-
-
-	public Long getAdmin_id() {
-		return admin_id;
+	public Long getAdminLevel() {
+		return adminLevel;
 	}
 
-	public void setAdmin_id(Long admin_id) {
-		this.admin_id = admin_id;
+	public void setAdminLevel(Long adminLevel) {
+		this.adminLevel = adminLevel;
 	}
+
+	public Long getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(Long employeeId) {
+		this.employeeId = employeeId;
+	}
+
+
+
 
 	
 	
