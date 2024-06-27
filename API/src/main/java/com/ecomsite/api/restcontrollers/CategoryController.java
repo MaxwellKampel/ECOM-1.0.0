@@ -51,13 +51,13 @@ public class CategoryController {
 	}
 
 //	One Category
-	@GetMapping("/categories/${id}")
+	@GetMapping("/categories/{id}")
 	public Category oneCategory(@PathVariable ("id") Long id) {
 		return cRepo.findById(id).orElseThrow(RuntimeException::new);
 	}
 
 //	Update Category
-	@PutMapping("/categories/${id}")
+	@PutMapping("/categories/{id}")
 	public ResponseEntity<Object> updateCategory(@PathVariable("id") Long id, 
 			@Valid @RequestBody Category category,
 			BindingResult result) {
@@ -68,7 +68,7 @@ public class CategoryController {
 		return ResponseEntity.ok().body(updatedProduct);
 	}
 	
-	@DeleteMapping("/categories/${id}")
+	@DeleteMapping("/categories/{id}")
 	public ResponseEntity <Object> deleteCategory(@PathVariable("id") Long id){
 		cRepo.deleteById(id);
 		return ResponseEntity.ok().build();

@@ -50,13 +50,13 @@ public class ProductController {
 	}
 
 //	One Product
-	@GetMapping("/products/${id}")
+	@GetMapping("/products/{id}")
 	public Product oneProduct(@PathVariable("id") Long id) {
 		return pRepo.findById(id).orElseThrow(RuntimeException::new);
 	}
 
 //	Update Product
-	@PutMapping("/products/${id}")
+	@PutMapping("/products/{id}")
 	public ResponseEntity<Object> updateProduct(@PathVariable("id") Long id, 
 			@Valid @RequestBody Product product,
 			BindingResult result) {
@@ -67,7 +67,7 @@ public class ProductController {
 		return ResponseEntity.ok().body(updatedProduct);
 	}
 	
-	@DeleteMapping("/products/${id}")
+	@DeleteMapping("/products/{id}")
 	public ResponseEntity <Object> deleteProduct(@PathVariable("id") Long id){
 		pRepo.deleteById(id);
 		return ResponseEntity.ok().build();
