@@ -16,8 +16,8 @@ import com.ecomsite.api.services.UserService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
+	@CrossOrigin(origins = "http://localhost://5173", allowCredentials = "true")
 @RestController
-@CrossOrigin(origins = "http://localhost://5173", allowCredentials = "true")
 @RequestMapping("/api/user")
 public class UserController {
 
@@ -37,7 +37,7 @@ public class UserController {
 		} else {
 			session.setAttribute("userId", regUser.getId());
 			session.setAttribute("userName", regUser.getFirstName());
-			return ResponseEntity.ok().build();
+			return ResponseEntity.ok().body(regUser);
 
 		}
 
