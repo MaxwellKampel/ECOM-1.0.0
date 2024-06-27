@@ -1,12 +1,17 @@
+
+
 {
+    "routes": [
+      { "src": "/", "dest": "/" },
+      { "src": "/products", "dest": "/" },
+      { "src": "/login", "dest": "/" }
+    ],
+    
     "rewrites": [
         {
             "source": "/(.*)",
-            "destination": "/index.html",
-            "routes" : [
-                { "src": "/", "dest": "/"},
-                { "src": "/products", "dest": "/"}
-            ]
+            "destination": "/index.html"
         }
     ]
 }
+
