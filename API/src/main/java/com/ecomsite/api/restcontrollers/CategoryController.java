@@ -41,7 +41,8 @@ public class CategoryController {
 
 //	Create Category
 	@PostMapping("/categories")
-	public ResponseEntity<Object> createCategory(@Valid @RequestBody Category category, BindingResult result) {
+	public ResponseEntity<Object> createCategory(@Valid @RequestBody Category category, 
+			BindingResult result) {
 		if (result.hasErrors()) {
 			return ResponseEntity.status(400).body(result.getAllErrors());
 		}
@@ -51,7 +52,7 @@ public class CategoryController {
 
 //	One Category
 	@GetMapping("/categories/${id}")
-	public Category oneCategory(@PathVariable("id") Long id) {
+	public Category oneCategory(@PathVariable ("id") Long id) {
 		return cRepo.findById(id).orElseThrow(RuntimeException::new);
 	}
 
