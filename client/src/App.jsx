@@ -17,10 +17,14 @@ function App() {
   return (
     <>
       <Routes>
+        {/* FrontEnd */}
         <Route path='/' element={<Home />} />
         <Route path='/products' element={<Products />} />
         <Route path='/login' element={<LoginReg />} />
 
+        {/* BackEnd */}
+        
+        
 
       </Routes>
 
