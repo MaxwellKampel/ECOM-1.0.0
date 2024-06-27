@@ -16,8 +16,8 @@ import com.ecomsite.api.services.UserService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
-	@CrossOrigin(origins = "http://localhost://5173", allowCredentials = "true")
 @RestController
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 @RequestMapping("/api/user")
 public class UserController {
 
