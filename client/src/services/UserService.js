@@ -1,4 +1,4 @@
-import axios from "axious";
+import axios from "axios";
 
 const axiosInstance = axios.create({
         baseURL: 'http://localhost:8080/api',
@@ -7,3 +7,15 @@ const axiosInstance = axios.create({
                 'Content-Type': 'application/json'
         }
 })
+
+class UserService {
+        registerUser(data) {
+                return axiosInstance.post('/user/register', data)
+        }
+
+        loginUser(data) {
+                return axiosInstance.post('user/login', data)
+        }
+}
+
+export default UserService;
