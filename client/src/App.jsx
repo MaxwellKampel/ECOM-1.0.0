@@ -7,6 +7,7 @@ import { Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'react
 import Home from './views/Home';
 import Products from './views/Products';
 import LoginReg from './views/LoginReg';
+import AdminProducts from './views/AdminProducts';
 
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path='/login' element={<LoginReg />} />
 
         {/* BackEnd */}
+        <Route path='/admin/products' element={<AdminProducts />} />
         
         
 

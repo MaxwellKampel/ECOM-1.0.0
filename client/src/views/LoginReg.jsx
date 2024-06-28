@@ -33,7 +33,7 @@ const LoginReg = (props) => {
         userService.registerUser(newUser)
             .then(res => {  // success protocol
                 console.log("New user created:", res.data)
-                redirect("/home")   // calls the useNavigate() function we created
+                redirect("/")   // calls the useNavigate() function we created
             })
             .catch(err => {     // rejection protocol
                 console.log("Problem adding new user - check server terminal", err);
@@ -50,7 +50,7 @@ const LoginReg = (props) => {
             axios.post("http://localhost:8080/api/user/login", loggedUser)
                 .then(res => {  // success protocol
                     console.log("user logged in:", res.data)
-                    redirect("/home")   // calls the useNavigate() function we created
+                    redirect("/")   // calls the useNavigate() function we created
                 })
                 .catch(err => {     // rejection protocol
                     console.log("Problem logging in user - check server terminal", err);

@@ -21,7 +21,7 @@ import com.ecomsite.api.repositories.CategoryRepository;
 import jakarta.validation.Valid;
 
 @RestController
-@CrossOrigin(origins = "http://localhost://5173", allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 @RequestMapping("/api")
 public class CategoryController {
 
