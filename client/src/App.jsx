@@ -7,7 +7,7 @@ import { Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'react
 import Home from './views/Home';
 import Products from './views/Products';
 import LoginReg from './views/LoginReg';
-import AdminDashboard from  './views/AdminDashboard';
+import AdminDashboard from  './views/AdminDashboard/AdminDashboard';
 import AdminProducts from './views/AdminProducts';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -30,7 +30,6 @@ function App() {
 
         {/* BackEnd */}
         <Route path='/admin' element={<AdminDashboard />} />
-
         <Route path='/admin/products' element={<AdminProducts />} />
         
         
